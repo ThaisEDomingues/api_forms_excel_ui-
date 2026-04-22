@@ -1,142 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback - Seu App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --azul-claro: #87CEEB; /* Azul céu suave */
-            --azul-escuro: #4682B4; /* Para contraste em textos/bordas */
-            --fundo: #f0f7f9; /* Fundo levemente azulado */
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--fundo);
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* Fundo Azul Claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
-
-        .container {
-            display: flex;
-            width: 950px;
-            height: 500px;
-            background: #ffffff;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            text-align: center;
         }
-
-        /* Lado Esquerdo: Imagem da Floresta */
-        .visual-side {
-            flex: 1.2;
-            background: url('https://images.unsplash.com/photo-1501854140801-50d01698950b') center/cover;
-            position: relative;
+        .forest-header {
+            height: 150px;
+            background: url('SUA_IMAGEM_FLORESTA_AQUI.jpg') center/cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
-
-        .visual-side::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(135, 206, 235, 0.2); /* Overlay suave em azul */
-        }
-
-        /* Lado Direito: Formulário */
-        .form-side {
-            flex: 1;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        h1 { color: #2c3e50; margin-bottom: 10px; }
-        p { color: #7f8c8d; margin-bottom: 30px; }
-
-        .scale-group {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .radio-btn {
-            width: 45px;
-            height: 45px;
-            border: 2px solid var(--azul-claro);
-            color: var(--azul-escuro);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .btn-scale {
+            padding: 10px 20px;
+            margin: 5px;
+            border: 2px solid #00796b; /* Azul esverdeado de floresta */
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            background: white;
         }
-
-        .radio-btn:hover {
-            background-color: var(--azul-claro);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #d1e7ef;
-            background: #fdfefe;
-            resize: none;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: var(--azul-escuro);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background-color: #35678d;
-        }
+        .btn-scale:hover { background: #00796b; color: white; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="visual-side"></div>
-    <div class="form-side">
-        <h1>Sua jornada conosco</h1>
-        <p>Como você avaliaria nossa parceria até aqui?</p>
-        
-        <form>
-            <label style="font-weight: 600; color: #2c3e50;">Nota de indicação:</label>
-            <div class="scale-group">
-                <div class="radio-btn">1</div>
-                <div class="radio-btn">2</div>
-                <div class="radio-btn">3</div>
-                <div class="radio-btn">4</div>
-                <div class="radio-btn">5</div>
-            </div>
-            
-            <textarea placeholder="O que podemos melhorar para você?"></textarea>
-            
-            <button type="submit">Enviar Avaliação</button>
-        </form>
+    <div class="card">
+        <div class="forest-header"></div>
+        <h2>Como podemos melhorar?</h2>
+        <p>Sua jornada é parte da nossa floresta.</p>
+        <div>
+            <button class="btn-scale">1</button>
+            <button class="btn-scale">2</button>
+            <button class="btn-scale">3</button>
+            <button class="btn-scale">4</button>
+            <button class="btn-scale">5</button>
+        </div>
     </div>
-</div>
-
 </body>
 </html>
