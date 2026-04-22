@@ -1,52 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
+    <meta charset="UTF-8">
     <style>
+        :root {
+            --azul-floresta: #2c5e77;
+            --azul-claro: #e0f2f7;
+            --branco: #ffffff;
+        }
+
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* Fundo Azul Claro */
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f7f9, #dbeff3);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
+
         .card {
-            background: white;
-            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 800px;
+            background: var(--branco);
             border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 500px;
-            text-align: center;
         }
-        .forest-header {
-            height: 150px;
-            background: url('SUA_IMAGEM_FLORESTA_AQUI.jpg') center/cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
+
+        .visual-side {
+            background: url('URL_DA_SUA_FLORESTA.jpg') center/cover;
+            position: relative;
         }
-        .btn-scale {
-            padding: 10px 20px;
-            margin: 5px;
-            border: 2px solid #00796b; /* Azul esverdeado de floresta */
+
+        .form-side {
+            padding: 40px;
+        }
+
+        .scale-btn {
+            padding: 10px 15px;
+            border: 1px solid var(--azul-floresta);
             border-radius: 8px;
+            background: transparent;
             cursor: pointer;
-            background: white;
+            transition: 0.3s;
         }
-        .btn-scale:hover { background: #00796b; color: white; }
+
+        .scale-btn:hover {
+            background: var(--azul-floresta);
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="card">
-        <div class="forest-header"></div>
-        <h2>Como podemos melhorar?</h2>
-        <p>Sua jornada é parte da nossa floresta.</p>
-        <div>
-            <button class="btn-scale">1</button>
-            <button class="btn-scale">2</button>
-            <button class="btn-scale">3</button>
-            <button class="btn-scale">4</button>
-            <button class="btn-scale">5</button>
+        <div class="visual-side"></div>
+        <div class="form-side">
+            <h2>Como está a ser a sua experiência?</h2>
+            <p>A sua opinião ajuda-nos a cuidar da nossa floresta digital.</p>
+            <form>
+                <label>Numa escala de 1 a 5, quanto nos indicaria?</label>
+                <div style="margin: 20px 0;">
+                    <button type="button" class="scale-btn">1</button>
+                    <button type="button" class="scale-btn">2</button>
+                    <button type="button" class="scale-btn">3</button>
+                    <button type="button" class="scale-btn">4</button>
+                    <button type="button" class="scale-btn">5</button>
+                </div>
+                <textarea placeholder="O que podemos melhorar?" style="width: 100%; height: 80px;"></textarea>
+            </form>
         </div>
     </div>
 </body>
