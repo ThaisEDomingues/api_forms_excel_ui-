@@ -1,76 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Floresta Azul</title>
     <style>
-        :root {
-            --azul-floresta: #2c5e77;
-            --azul-claro: #e0f2f7;
-            --branco: #ffffff;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f0f7f9, #dbeff3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 800px;
-            background: var(--branco);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .visual-side {
-            background: url('URL_DA_SUA_FLORESTA.jpg') center/cover;
-            position: relative;
-        }
-
-        .form-side {
-            padding: 40px;
-        }
-
-        .scale-btn {
-            padding: 10px 15px;
-            border: 1px solid var(--azul-floresta);
-            border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .scale-btn:hover {
-            background: var(--azul-floresta);
-            color: white;
-        }
+        :root { --azul: #2c5e77; --azul-claro: #e0f2f7; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--azul-claro); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { display: grid; grid-template-columns: 1fr 1fr; width: 800px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .visual { background: url('https://images.unsplash.com/photo-1448375240586-882707325603') center/cover; }
+        .form-side { padding: 40px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        button { background: var(--azul); color: white; padding: 12px; border: none; border-radius: 8px; width: 100%; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="visual-side"></div>
-        <div class="form-side">
-            <h2>Como está a ser a sua experiência?</h2>
-            <p>A sua opinião ajuda-nos a cuidar da nossa floresta digital.</p>
-            <form>
-                <label>Numa escala de 1 a 5, quanto nos indicaria?</label>
-                <div style="margin: 20px 0;">
-                    <button type="button" class="scale-btn">1</button>
-                    <button type="button" class="scale-btn">2</button>
-                    <button type="button" class="scale-btn">3</button>
-                    <button type="button" class="scale-btn">4</button>
-                    <button type="button" class="scale-btn">5</button>
-                </div>
-                <textarea placeholder="O que podemos melhorar?" style="width: 100%; height: 80px;"></textarea>
-            </form>
-        </div>
+
+<div class="card">
+    <div class="visual"></div>
+    <div class="form-side">
+        <h2>Feedback do App</h2>
+        <form id="feedbackForm">
+            <input type="text" name="entry.1300391759" placeholder="Seu nome" required>
+            <label>Você indicaria o app?</label>
+            <select name="entry.130791137">
+                <option value="Sim">Sim</option>
+                <option value="Nao indicaria">Não indicaria</option>
+                <option value="Resalvas">Indicaria com ressalvas</option>
+            </select>
+            <textarea name="entry.592422544" placeholder="Sua experiência..."></textarea>
+            <button type="submit">Enviar</button>
+        </form>
     </div>
+</div>
+
+<script>
+    // Conexão: Substitua o URL abaixo pelo URL de POST do seu Google Form
+    // Como pegar: Inspecione seu form, ache o <form action="..."> e copie a URL
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdDrtgXeM31S6ek0Detgkm1xxX5BpbZ-f6X_pTpWV3qt3Bn6w/viewform?usp=pp_url&entry.1300391759=Exemplo_nome&entry.1563418554=2&entry.592422544=exemplo_experi%C3%AAncia&entry.130791137=N%C3%A3o+indicaria
+";
+
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch(GOOGLE_FORM_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        }).then(() => {
+            alert('Feedback enviado com sucesso!');
+        }).catch(err => alert('Erro ao enviar.'));
+    });
+</script>
 </body>
 </html>
