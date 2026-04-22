@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Seu App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-claro: #87CEEB; /* Azul céu suave */
+            --azul-escuro: #4682B4; /* Para contraste em textos/bordas */
+            --fundo: #f0f7f9; /* Fundo levemente azulado */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--fundo);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 950px;
+            height: 500px;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(70, 130, 180, 0.15);
+        }
+
+        /* Lado Esquerdo: Imagem da Floresta */
+        .visual-side {
+            flex: 1.2;
+            background: url('https://images.unsplash.com/photo-1501854140801-50d01698950b') center/cover;
+            position: relative;
+        }
+
+        .visual-side::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(135, 206, 235, 0.2); /* Overlay suave em azul */
+        }
+
+        /* Lado Direito: Formulário */
+        .form-side {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        p { color: #7f8c8d; margin-bottom: 30px; }
+
+        .scale-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .radio-btn {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--azul-claro);
+            color: var(--azul-escuro);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .radio-btn:hover {
+            background-color: var(--azul-claro);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #d1e7ef;
+            background: #fdfefe;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: var(--azul-escuro);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #35678d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="visual-side"></div>
+    <div class="form-side">
+        <h1>Sua jornada conosco</h1>
+        <p>Como você avaliaria nossa parceria até aqui?</p>
+        
+        <form>
+            <label style="font-weight: 600; color: #2c3e50;">Nota de indicação:</label>
+            <div class="scale-group">
+                <div class="radio-btn">1</div>
+                <div class="radio-btn">2</div>
+                <div class="radio-btn">3</div>
+                <div class="radio-btn">4</div>
+                <div class="radio-btn">5</div>
+            </div>
+            
+            <textarea placeholder="O que podemos melhorar para você?"></textarea>
+            
+            <button type="submit">Enviar Avaliação</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
